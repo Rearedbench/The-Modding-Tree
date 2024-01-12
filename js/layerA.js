@@ -76,7 +76,7 @@ addLayer("d", {
             description: "Boost Sun gain based on Sun",
             cost: new Decimal(10),
             effect() {
-                return player.points.add(1).pow(0.5)
+                return player.points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked() {
@@ -134,7 +134,7 @@ addLayer("d", {
                  return (1000)
             },
             rewardDescription() {return "+1 to base Sun gain per completion ("+format(challengeCompletions('d', 11))+"/1000)"},
-            goalDescription() {return "Reach "+format (new Decimal(25).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" points"},
+            goalDescription() {return "Reach "+format (new Decimal(25).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" Sun"},
             canComplete() {return player.points.gte(new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
             unlocked() {
                 if (hasUpgrade('d', 11))
@@ -149,9 +149,9 @@ addLayer("d", {
             completionLimit() {
                  return (500)
             },
-            rewardDescription() {return "+3 to base Sun Gain per completion ("+format(challengeCompletions('d', 11))+"/500)"},
-            goalDescription() {return "Reach "+format (new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" points"},
-            canComplete() {return player.points.gte(new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
+            rewardDescription() {return "+3 to base Sun Gain per completion ("+format(challengeCompletions('d', 12))+"/500)"},
+            goalDescription() {return "Reach "+format (new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 12)))))+" Sun"},
+            canComplete() {return player.points.gte(new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 12)))))},
             unlocked() {
                 if (hasUpgrade('d', 14))
                     return true
@@ -165,9 +165,9 @@ addLayer("d", {
             completionLimit() {
                  return (300)
             },
-            rewardDescription() {return "+1 to base Day gain per completion ("+format(challengeCompletions('d', 11))+"/300)"},
-            goalDescription() {return "Reach "+format (new Decimal(40).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" points"},
-            canComplete() {return player.points.gte(new Decimal(40).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
+            rewardDescription() {return "+1 to base Day gain per completion ("+format(challengeCompletions('d', 13))+"/300)"},
+            goalDescription() {return "Reach "+format (new Decimal(40).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 13)))))+" Sun"},
+            canComplete() {return player.points.gte(new Decimal(40).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 13)))))},
             unlocked() {
                 if (hasUpgrade('d', 14))
                     return true
@@ -181,9 +181,9 @@ addLayer("d", {
             completionLimit() {
                  return (150)
             },
-            rewardDescription() {return "+10 to base Sun gain per completion ("+format(challengeCompletions('d', 11))+"/150)"},
-            goalDescription() {return "Reach "+format (new Decimal(50).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" points"},
-            canComplete() {return player.points.gte(new Decimal(50).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
+            rewardDescription() {return "+10 to base Sun gain per completion ("+format(challengeCompletions('d', 21))+"/150)"},
+            goalDescription() {return "Reach "+format (new Decimal(50).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 21)))))+" Sun "},
+            canComplete() {return player.points.gte(new Decimal(50).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 21)))))},
             unlocked() {
                 if (hasUpgrade('d', 14))
                     return true
@@ -197,9 +197,9 @@ addLayer("d", {
             completionLimit() {
                  return (100)
             },
-            rewardDescription() {return "Multiply Sun gain per completion ("+format(challengeCompletions('d', 11))+"/100)"},
-            goalDescription() {return "Reach "+format (new Decimal(100).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" points"},
-            canComplete() {return player.points.gte(new Decimal(100).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
+            rewardDescription() {return "Multiply Sun gain per completion ("+format(challengeCompletions('d', 22))+"/100)"},
+            goalDescription() {return "Reach "+format (new Decimal(100).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 22)))))+" Sun"},
+            canComplete() {return player.points.gte(new Decimal(100).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 22)))))},
             unlocked() {
                 if (hasUpgrade('d', 24))
                     return true

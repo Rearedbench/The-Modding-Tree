@@ -19,7 +19,11 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.1</h3><br>
-		- Added a prestige layer`
+		- Added a prestige layer<br>
+	<h3>v0.1.1</h3><br>
+		- Balenced some Things<br>
+		- Fixed Some Challenges`
+	
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -49,14 +53,14 @@ function getPointGen() {
 	if (hasUpgrade('d', 21)) gain = gain.times(upgradeEffect('d', 21))
 	// Challenge Rewards Day
 	if (hasChallenge('d', 11)) gain = gain.plus(challengeCompletions('d', 11))
-	if (hasChallenge('d', 12)) gain = gain.plus(challengeCompletions('d', 12)).times(3)
-	if (hasChallenge('d', 21)) gain = gain.plus(challengeCompletions('d', 21)).times(10)
+	if (hasChallenge('d', 12)) gain = gain.plus(challengeCompletions('d', 12)(3))
+	if (hasChallenge('d', 21)) gain = gain.plus(challengeCompletions('d', 21)(10))
 	if (hasChallenge('d', 22)) gain = gain.times(challengeCompletions('d', 22))
 	// Challenge Effect Day
 	if (inChallenge('d', 12)) gain = gain.times(0.5)
-	if (inChallenge('d', 13)) gain = gain.times(challengeCompletions('d', 13)/2)
+	if (inChallenge('d', 13)) gain = gain.times((challengeCompletions('d', 13)+1)/2)
 	if (inChallenge('d', 21)) gain = gain.times(0.25)
-	if (inChallenge('d', 22)) gain = gain.times(0.5).times(0.25).times(challengeCompletions('d', 13)/2)
+	if (inChallenge('d', 22)) gain = gain.times(0.5).times(0.25).times((challengeCompletions('d', 13)+1)/2)
 	return gain
 }
 
