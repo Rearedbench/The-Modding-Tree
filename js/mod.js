@@ -1,9 +1,9 @@
 let modInfo = {
 	name: "The Purple Tree",
-	id: "Fnafmod",
-	author: "The Penapple",
-	pointsName: "Money",
-	modFiles: ["layers.js", "tree.js"],
+	id: "PvZmod",
+	author: "Rearedbench",
+	pointsName: "Sun",
+	modFiles: ["layerA.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -18,9 +18,8 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added money.<br>
-		- Added Cloth.`
+	<h3>v0.1</h3><br>
+		- Added a basic prestige tree`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -43,9 +42,21 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0)
-	if (hasUpgrade('p', 11)) gain = gain.plus(1)
-	if (hasUpgrade('p', 12)) gain = gain.times(2)
-	if (hasUpgrade('p', 13)) gain = gain.times(upgradeEffect('p', 13))
+	// Upgrade Day Effects
+	if (hasUpgrade('d', 11)) gain = gain.plus(1)
+	if (hasUpgrade('d', 12)) gain = gain.times(2)
+	if (hasUpgrade('d', 13)) gain = gain.times(upgradeEffect('d', 13))
+	if (hasUpgrade('d', 21)) gain = gain.times(upgradeEffect('d', 21))
+	// Challenge Rewards Day
+	if (hasChallenge('d', 11)) gain = gain.plus(challengeCompletions('d', 11))
+	if (hasChallenge('d', 12)) gain = gain.plus(challengeCompletions('d', 12)).times(3)
+	if (hasChallenge('d', 21)) gain = gain.plus(challengeCompletions('d', 21)).times(10)
+	if (hasChallenge('d', 22)) gain = gain.times(challengeCompletions('d', 22))
+	// Challenge Effect Day
+	if (inChallenge('d', 12)) gain = gain.times(0.5)
+	if (inChallenge('d', 13)) gain = gain.times(challengeCompletions('d', 13)/2)
+	if (inChallenge('d', 21)) gain = gain.times(0.25)
+	if (inChallenge('d', 22)) gain = gain.times(0.5).times(0.25).times(challengeCompletions('d', 13)/2)
 	return gain
 }
 
@@ -54,12 +65,12 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [
+var displayThings = [ 
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("5e1"))
+	return player.n.points.gte(new Decimal("1"))
 }
 
 
