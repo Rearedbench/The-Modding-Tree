@@ -153,7 +153,7 @@ addLayer("d", {
             goalDescription() {return "Reach "+format (new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 12)))))+" Sun"},
             canComplete() {return player.points.gte(new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 12)))))},
             unlocked() {
-                if (hasUpgrade('d', 14))
+                if (hasUpgrade('d', 12))
                     return true
                 else 
                     return false
@@ -185,7 +185,7 @@ addLayer("d", {
             goalDescription() {return "Reach "+format (new Decimal(50).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 21)))))+" Sun "},
             canComplete() {return player.points.gte(new Decimal(50).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 21)))))},
             unlocked() {
-                if (hasUpgrade('d', 14))
+                if (hasUpgrade('d', 22))
                     return true
                 else 
                     return false
@@ -237,7 +237,7 @@ addLayer("n", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "N", description: "N: Reset for Days", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "N", description: "N: Reset for Nights", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     
 
