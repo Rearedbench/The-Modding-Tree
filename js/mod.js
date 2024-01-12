@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "The Purple Tree",
+	name: "The Planting Tree",
 	id: "PvZmod",
 	author: "Rearedbench",
 	pointsName: "Sun",
@@ -19,7 +19,7 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.1</h3><br>
-		- Added a basic prestige tree`
+		- Added a prestige layer`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
