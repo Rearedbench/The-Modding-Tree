@@ -135,7 +135,7 @@ addLayer("d", {
             },
             rewardDescription() {return "+1 to base Sun gain per completion ("+format(challengeCompletions('d', 11))+"/1000)"},
             goalDescription() {return "Reach "+format (new Decimal(25).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))+" Sun"},
-            canComplete() {return player.points.gte(new Decimal(30).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
+            canComplete() {return player.points.gte(new Decimal(25).times(new Decimal(3).pow(new Decimal(challengeCompletions('d', 11)))))},
             unlocked() {
                 if (hasUpgrade('d', 11))
                     return true
