@@ -13,16 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.1",
+	num: "v0",
 	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1</h3><br>
-		- Added a prestige layer<br>
-	<h3>v0.1.1</h3><br>
-		- Balenced some Things<br>
-		- Fixed Some Challenges`
+	<h3>v0</h3><br>
+		- Added a basic layout<br>`
 	
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
@@ -46,35 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0)
-	// Upgrade Day Effects
-	if (hasUpgrade('d', 11)) gain = gain.plus(1)
-	if (hasUpgrade('d', 12)) gain = gain.times(2)
-	if (hasUpgrade('d', 13)) gain = gain.times(upgradeEffect('d', 13))
-	if (hasUpgrade('d', 21)) gain = gain.times(upgradeEffect('d', 21))
-	// Challenge Rewards Day
-	if (hasChallenge('d', 11)) gain = gain.plus(challengeCompletions('d', 11))
-	if (hasChallenge('d', 12)) gain = gain.plus(challengeCompletions('d', 12)*3)
-	if (hasChallenge('d', 21)) gain = gain.plus(challengeCompletions('d', 21)*10)
-	if (hasChallenge('d', 22)) gain = gain.times(challengeCompletions('d', 22))
-	// Challenge Effect Day
-	if (inChallenge('d', 12)) gain = gain.times(0.5)
-	if (inChallenge('d', 13)) gain = gain.times((challengeCompletions('d', 13)+1))
-	if (inChallenge('d', 21)) gain = gain.times(0.25)
-	if (inChallenge('d', 22)) gain = gain.times(0.5).times(0.25).times((challengeCompletions('d', 13)+1))
-	// Upgrade Night Effects
-	if (hasUpgrade('n', 11)) gain = gain.plus(10)
-	if (hasUpgrade('n', 12)) gain = gain.times(1.5)
-	if (hasUpgrade('n', 21)) gain = gain.times(upgradeEffect('n', 21))
-	// Challenge Rewards Night
-	if (hasChallenge('n', 11)) gain = gain.plus(challengeCompletions('n', 11))
-	if (hasChallenge('n', 12)) gain = gain.plus(challengeCompletions('n', 12)*3)
-	if (hasChallenge('n', 21)) gain = gain.plus(challengeCompletions('n', 21)*10)
-	if (hasChallenge('n', 22)) gain = gain.times(challengeCompletions('n', 22))
-	// Challenge Effect Night
-	if (inChallenge('n', 12)) gain = gain.times(0.5)
-	if (inChallenge('n', 13)) gain = gain.times((challengeCompletions('n', 13)+1))
-	if (inChallenge('n', 21)) gain = gain.times(0.25)
-	if (inChallenge('n', 22)) gain = gain.times(0.5).times(0.25).times((challengeCompletions('n', 13)+1))
+	
 	
 	return gain
 }
@@ -89,7 +58,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.n.points.gte(new Decimal("1000"))
+	return player.points.gte(new Decimal("1000"))
 }
 
 
