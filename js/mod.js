@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The Planting Tree",
-	id: "PvZmod",
-	author: "Rearedbench",
-	pointsName: "Sun",
+	name: "The Indie Tree",
+	id: "Indiemod",
+	author: "rearedbench",
+	pointsName: "Lines of Code",
 	modFiles: ["layerA.js", "tree.js"],
 
 	discordName: "",
@@ -13,14 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "v0",
+	num: "1",
 	name: "Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0</h3><br>
-		- Added a basic layout<br>`
-	
+	<h3>v1</h3><br>
+		- Added FNF layer with 24 upgrades and 6 challenges<br>
+		- Did some balancing`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -42,8 +42,21 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(0)
-	
+	let gain = new Decimal(1)
+	// base adds
+	// mults
+	if (hasUpgrade("s", 12)) gain = gain.times(2)
+	if (hasUpgrade("s", 13)) gain = gain.times(upgradeEffect("s", 13))
+	if (hasUpgrade("s", 21)) gain = gain.times(2)
+	if (hasUpgrade("s", 23)) gain = gain.times(upgradeEffect("s", 23))
+	if (hasUpgrade("s", 31)) gain = gain.times(upgradeEffect("s", 31))
+	if (hasUpgrade("s", 33)) gain = gain.times(upgradeEffect("s", 33))
+	// Challenger
+	if (hasChallenge("s", 11)) gain = gain.times(1.5)
+	if (hasChallenge("s", 21)) gain = gain.pow(1.1)
+	// Challenged
+	if (inChallenge("s", 12)) gain = gain.times(0.5)
+	if (inChallenge("s", 21)) gain = gain.sqrt(2)
 	
 	return gain
 }
@@ -53,12 +66,12 @@ function addedPlayerData() { return {
 }}
 
 // Display extra things at the top of the page
-var displayThings = [ 
+var displayThings = [
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("1000"))
+	return player.points.gte(new Decimal("e280000000"))
 }
 
 
