@@ -172,105 +172,7 @@ addLayer("s", {
 
         },
 
-        41: {
-            title: "Pico",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasChallenge('s', 21)},
-
-        },
         
-        42: {
-            title: "Pico, again",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 41)},
-        
-
-        },
-        43: {
-            title: "Philly Nice",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 42)},
-        
-
-        },
-        44: {
-            title: "Blammed",
-            description: "Unlock a Challenge",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 43)},
-
-        },
-
-        51: {
-            title: "Mommy Mearest",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasChallenge('s', 22)},
-        
-
-        },
-        
-        52: {
-            title: "Satin Panties",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 51)},
-        
-
-        },
-        53: {
-            title: "High",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 52)},
-        
-
-        },
-        54: {
-            title: "M.I.L.F",
-            description: "Unlock a Challenge",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 53)},
-        
-
-        },
-
-        61: {
-            title: "Christmas",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasChallenge('s', 31)},
-        
-
-        },
-        
-        62: {
-            title: "Cocoa",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 61)},
-        
-
-        },
-        63: {
-            title: "Eggnog",
-            description: "sus",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 62)},
-        
-
-        },
-        64: {
-            title: "Winter Horrorland",
-            description: "Unlock a Challenge",
-            cost: new Decimal(1),
-            unlocked: function() {return hasUpgrade('s', 63)},
-        
-
-        },
     },
 
     challenges: {
@@ -301,32 +203,7 @@ addLayer("s", {
             canComplete: function() {return player.points.gte("5000")},
         },
 
-        22: {
-            name: "Back to School",
-            challengeDescription: "sus",
-            goalDescription: "sus",
-            rewardDescription: "Get a 1.5x to lines of code",
-            unlocked: function() {return hasUpgrade('s', 44)},
-            canComplete: function() {return player.points.gte("10")},
-        },
-
-        31: {
-            name: "Standing on a Car",
-            challengeDescription: "sus",
-            goalDescription: "sus",
-            rewardDescription: "Get a 1.5x to lines of code",
-            unlocked: function() {return hasUpgrade('s', 54)},
-            canComplete: function() {return player.points.gte("10")},
-        },
-
-        32: {
-            name: "Christmas Lemons",
-            challengeDescription: "sus",
-            goalDescription: "sus",
-            rewardDescription: "Get a 1.5x to lines of code",
-            unlocked: function() {return hasUpgrade('s', 64)},
-            canComplete: function() {return player.points.gte("10")},
-        },
+       
     
     },
 

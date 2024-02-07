@@ -19,7 +19,7 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1</h3><br>
-		- Added FNF layer with 24 upgrades and 6 challenges<br>
+		- Added FNF layer with 12 upgrades and 3 challenges<br>
 		- Did some balancing`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
