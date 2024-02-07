@@ -116,7 +116,7 @@ addLayer("s", {
                 else    
                     return new Decimal(2)
             },
-            description: "The second week. Gain 2x to code for every upgrade in this line",
+            description: "The second week. Gain 2x to code for every upgrade in this row",
             cost: new Decimal(50),
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked: function() {return hasChallenge('s', 12)},
@@ -135,7 +135,7 @@ addLayer("s", {
                     return new Decimal(1.21)
             
             },
-            description: "Gain a 1.5x multiplier to songs for every upgrade in this layer",
+            description: "Gain a 1.5x multiplier to songs for every upgrade in this row",
             cost: new Decimal(90),
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked: function() {return hasUpgrade('s', 31)},
@@ -167,7 +167,7 @@ addLayer("s", {
         34: {
             title: "Monster",
             description: "Don't stop fighting. Unlock a Challenge",
-            cost: new Decimal(300),
+            cost: new Decimal(1000),
             unlocked: function() {return hasUpgrade('s', 33)},
 
         },
@@ -286,19 +286,19 @@ addLayer("s", {
         12: {
             name: "Dating his Daughter",
             challengeDescription: "Daddy Dearest ain't going down without a fight. Divide point gain by 2",
-            goalDescription: "Get 50 lines of code",
+            goalDescription: "Get 100 lines of code",
             rewardDescription: "Get a 2x to lines of songs",
             unlocked: function() {return hasUpgrade('s', 24)},
-            canComplete: function() {return player.points.gte("50")},
+            canComplete: function() {return player.points.gte("100")},
         },
 
         21: {
             name: "Is a Spooky Month",
             challengeDescription: "The Monster is here... Code gain is square rooted",
-            goalDescription: "Get 1000 lines of code",
+            goalDescription: "Get 5000 lines of code",
             rewardDescription: "Boost code to the power of 1.1",
             unlocked: function() {return hasUpgrade('s', 34)},
-            canComplete: function() {return player.points.gte("1000")},
+            canComplete: function() {return player.points.gte("5000")},
         },
 
         22: {
