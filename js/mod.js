@@ -1,9 +1,9 @@
 let modInfo = {
-	name: "The Indie Tree",
-	id: "Indiemod",
+	name: "FNF Tree",
+	id: "FNF",
 	author: "rearedbench",
 	pointsName: "Lines of Code",
-	modFiles: ["layerA.js", "tree.js"],
+	modFiles: ["layer.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -14,13 +14,12 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "1",
-	name: "Literally nothing",
+	name: "Creation",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v1</h3><br>
-		- Added FNF layer with 12 upgrades and 3 challenges<br>
-		- Did some balancing`
+	<h3>v1: Creation</h3><br>
+		-It exists`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -43,21 +42,25 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	// base adds
-	// mults
-	if (hasUpgrade("s", 12)) gain = gain.times(2)
-	if (hasUpgrade("s", 13)) gain = gain.times(upgradeEffect("s", 13))
-	if (hasUpgrade("s", 21)) gain = gain.times(2)
-	if (hasUpgrade("s", 23)) gain = gain.times(upgradeEffect("s", 23))
-	if (hasUpgrade("s", 31)) gain = gain.times(upgradeEffect("s", 31))
-	if (hasUpgrade("s", 33)) gain = gain.times(upgradeEffect("s", 33))
-	// Challenger
-	if (hasChallenge("s", 11)) gain = gain.times(1.5)
-	if (hasChallenge("s", 21)) gain = gain.pow(1.1)
-	// Challenged
-	if (inChallenge("s", 12)) gain = gain.times(0.5)
-	if (inChallenge("s", 21)) gain = gain.sqrt(2)
-	
+	if (hasUpgrade('s', 11)) gain = gain.times(2)
+	if (hasUpgrade('s', 12)) gain = gain.times(upgradeEffect('s', 12))
+	if (hasUpgrade('s', 21)) gain = gain.times(upgradeEffect('s', 21))
+	if (hasUpgrade('s', 31)) gain = gain.times(1.1)
+	if (hasUpgrade('s', 32)) gain = gain.times(1.2)
+	if (hasUpgrade('s', 33)) gain = gain.times(1.3)
+	if (hasUpgrade('s', 34)) gain = gain.times(1.4)
+	if (hasUpgrade('s', 51)) gain = gain.times(1.5)
+	if (hasUpgrade('s', 52)) gain = gain.times(1.6)
+	if (hasUpgrade('s', 53)) gain = gain.times(1.7)
+	if (hasUpgrade('s', 54)) gain = gain.times(1.8)
+	if (hasUpgrade('s', 71)) gain = gain.times(1.9)
+	if (hasUpgrade('s', 72)) gain = gain.times(2)
+	if (hasUpgrade('s', 73)) gain = gain.times(2.1)
+	if (hasUpgrade('s', 74)) gain = gain.times(2.2)
+	if (hasUpgrade('s', 91)) gain = gain.times(2.3)
+	if (hasUpgrade('s', 92)) gain = gain.times(2.4)
+	if (hasUpgrade('s', 93)) gain = gain.times(2.5)
+	if (hasUpgrade('s', 94)) gain = gain.times(1000)
 	return gain
 }
 
@@ -71,7 +74,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasChallenge("s", 21)
+	return hasUpgrade('s', 95)  
 }
 
 
